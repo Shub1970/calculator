@@ -2,8 +2,7 @@ import "./App.css";
 import { valOpert, valOpertName } from "./data";
 import { useState } from "react";
 
-function compare(e) {
-  const arr = ["*", "/", "-", "+"];
+function compare(e = "+", arr = ["*", "/", "-", "+"]) {
   return arr.find(function (val) {
     return val === e;
   });
@@ -22,6 +21,17 @@ function App() {
   };
   const handelLeftButton = (event) => {
     setDisp((previous) => {
+      if (
+        compare(previous.slice(-1)) &&
+        compare(event.target.value, ["*", "/", "+"])
+      ) {
+        return compare(previous.slice(-2, -1))
+          ? previous.slice(0, -2) + event.target.value
+          : previous.slice(0, -1) + event.target.value;
+      }
+      if (compare(previous.slice(-1)) && compare(event.target.value, ["-"])) {
+        return previous + "-";
+      }
       return previous + event.target.value;
     });
     setInput((previous) => {
