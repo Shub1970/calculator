@@ -1,6 +1,6 @@
 export const valOpert = [
   "/",
-  "x",
+  "*",
   7,
   8,
   9,
@@ -14,7 +14,6 @@ export const valOpert = [
   3,
   "",
   0,
-  ".",
 ];
 export const valOpertName = [
   "divide",
@@ -32,5 +31,4 @@ export const valOpertName = [
   "three",
   "",
   "zero",
-  "decimal",
 ];
